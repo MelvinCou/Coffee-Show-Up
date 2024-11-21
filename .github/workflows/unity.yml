@@ -19,6 +19,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+          
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: false
+          dotnet: false
+          haskell: true
+          large-packages: true
+          docker-images: false
+          swap-storage: true
+
       - uses: actions/cache@v4
         with:
           path: coffee-show-up/Library
@@ -41,7 +57,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Android.apk
-          path: coffee-show-up/build/Android.apk
+          path: coffee-show-up/build/Android/Android.apk
 
       - name: Creat a comment on PR
         uses: actions/github-script@v7
@@ -67,7 +83,7 @@ jobs:
         if: github.event_name == 'push'
         with:
           tag_name: apk-${{ github.run_number }}
-          files: coffee-show-up/build/Android.apk
+          files: coffee-show-up/build/Android/Android.apk
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: false
           prerelease: true
