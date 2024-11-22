@@ -1,6 +1,6 @@
 # Coffee Show Up - Unity Project
 
-Original repository : https://github.com/MelvinCou/Enigma-Stack
+Original repository : https://github.com/MelvinCou/Coffee-Show-Up
 
 ## Launch Project
 
@@ -12,4 +12,4 @@ Open the coffee-show-up folder in your Unity Hub. It will automatically download
 NB : this project is configured to work on Android. If you need to use it on another platform, go to the Project Settings in Unity.
 
 > [!Note]
-> Automatic APK builds are available in the [Releases](https://github.com/MelvinCou/Enigma-Stack/releases).
+> Automatic APK builds are available in the [Releases](https://github.com/MelvinCou/Coffee-Show-Up/releases).
