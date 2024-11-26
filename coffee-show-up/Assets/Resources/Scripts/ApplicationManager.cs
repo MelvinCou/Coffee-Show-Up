@@ -1,7 +1,7 @@
 using UnityEngine;
 using Assets.Resources.Scripts;
 
-public class ApplicationManagement : MonoBehaviour
+public class ApplicationManager : MonoBehaviour
 {
     public GameObject StartElementUI;
     public ApplicationStates AppState { get; set; }
