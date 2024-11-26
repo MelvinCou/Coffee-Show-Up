@@ -9,7 +9,9 @@ namespace Assets.Resources.Scripts
     public enum ApplicationStates
     {
         APP_STARTED,
+        SCANNING,
         MARKER_SCANNED,
+        SPAWNING,
         MODEL_SPAWNED
     }
 }
