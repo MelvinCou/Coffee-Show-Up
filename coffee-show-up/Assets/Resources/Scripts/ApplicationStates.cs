@@ -10,7 +10,7 @@ namespace Assets.Resources.Scripts
     {
         APP_STARTED,
         SCANNING,
-        MARKER_SCANNED,
+        MODEL_TARGET_SCANNED,
         SPAWNING,
         MODEL_SPAWNED
     }
