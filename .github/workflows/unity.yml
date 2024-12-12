@@ -5,9 +5,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - coffee-show-up/**
   pull_request:
     branches:
       - main
+    paths:
+      - coffee-show-up/**
 
 permissions:
   contents: write
@@ -61,7 +65,7 @@ jobs:
           name: Android.apk
           path: coffee-show-up/build/Android/Android.apk
 
-      - name: Creat a comment on PR
+      - name: Create a comment on PR
         uses: actions/github-script@v7
         if: ${{ github.event_name == 'pull_request' }}
         with:
@@ -75,12 +79,11 @@ jobs:
               })
 
       # Create a tag and release
-      - uses: rickstaa/action-create-tag@v1
+      - name: Create a tag
         if: github.event_name == 'push'
-        with:
-          tag: apk-${{ github.run_number }}
-          tag_exists_error: false
-          message: Built apk from continuous integration
+        run: |
+          git tag -m "Built apk from continuous integration" apk-${{ github.run_number }}
+          git push origin apk-${{ github.run_number }}
       - uses: softprops/action-gh-release@v2
         if: github.event_name == 'push'
         with:
