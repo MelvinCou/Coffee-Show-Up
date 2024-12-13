@@ -9,6 +9,10 @@ public class ApplicationManager : MonoBehaviour
     public GameObject StartElementUI;
     public ApplicationStates AppState { get; set; }
 
+    public Button AudioButton;
+
+    public AudioSource AudioSource;
+
     private Text _presentationText;
 
     void Start()
@@ -20,6 +24,8 @@ public class ApplicationManager : MonoBehaviour
         {
             _presentationText.DOText("Scannez votre machine à café...", 5);
         }
+
+        AudioButton.onClick.AddListener(PlayAudio);
     }
 
     void Update()
@@ -28,5 +34,10 @@ public class ApplicationManager : MonoBehaviour
         {
             StartElementUI.SetActive(false);
         }
+    }
+
+    void PlayAudio()
+    {
+        AudioSource.Play();
     }
 }
