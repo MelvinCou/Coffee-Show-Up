@@ -79,13 +79,16 @@ jobs:
               })
 
       # Create a tag and release
-      - name: Create a tag
+      - uses: rickstaa/action-create-tag@v1
         if: github.event_name == 'push'
-        run: |
-          git tag -m "Built apk from continuous integration" apk-${{ github.run_number }}
-          git push origin apk-${{ github.run_number }}
+        continue-on-error: true
+        with:
+          tag: apk-${{ github.run_number }}
+          tag_exists_error: false
+          message: Built apk from continuous integration
       - uses: softprops/action-gh-release@v2
         if: github.event_name == 'push'
+        continue-on-error: true
         with:
           tag_name: apk-${{ github.run_number }}
           files: coffee-show-up/build/Android/Android.apk
