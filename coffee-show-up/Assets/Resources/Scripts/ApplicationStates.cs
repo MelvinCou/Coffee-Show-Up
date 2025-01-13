@@ -14,4 +14,19 @@ namespace Assets.Resources.Scripts
         SPAWNING,
         MODEL_SPAWNED
     }
+
+    public enum CoffeeMachineStates
+    {
+        NO_SHOW,
+        EXTERNAL_VIEW,
+        INNER_VIEW,
+        EXPLODED_VIEW
+    }
+
+    public enum ModeStates
+    {
+        NO_ACTIVE_MODE,
+        NOMINAL_MODE,
+        MAINTENANCE_MODE
+    }
 }

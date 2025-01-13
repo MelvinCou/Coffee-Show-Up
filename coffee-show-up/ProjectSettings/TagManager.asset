@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Right-Lateral-Plane
   - Upper-Part
+  - Nozzle
+  - Piston
+  - Pump
+  - Pipes
   layers:
   - Default
   - TransparentFX

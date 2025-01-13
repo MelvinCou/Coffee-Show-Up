@@ -107,6 +107,8 @@ public class DefaultObserverEventHandler : MonoBehaviour
             {
                 OnTrackingFound();
                 appManagement.AppState = ApplicationStates.MODEL_SPAWNED;
+                appManagement.CoffeeMachineState = CoffeeMachineStates.EXTERNAL_VIEW;
+                
 
             }
             else
