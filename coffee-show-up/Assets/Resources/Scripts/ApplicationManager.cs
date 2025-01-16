@@ -44,7 +44,7 @@ public class ApplicationManager : MonoBehaviour
         _presentationText = children.First(text => text.name == "PresentationText");
         if (_presentationText)
         {
-            _presentationText.DOText("Scannez votre machine à café...", 5);
+            _presentationText.DOText("Scannez votre machine Ã  cafÃ©...", 5);
         }
 
         AudioButton.onClick.AddListener(PlayAudio);
