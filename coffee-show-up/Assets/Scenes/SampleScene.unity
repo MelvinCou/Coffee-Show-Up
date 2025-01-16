@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9e118e493f01ac54d8f27a87fb38b6f3, type: 3}
       propertyPath: m_Name
-      value: pipe-2
+      value: pipe-system
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -424,7 +424,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -435,7 +435,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Zoom Composants
+  m_Text: Focus Composants
 --- !u!222 &251771700
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1009,7 +1009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 191.8147, y: 253.78}
+  m_AnchoredPosition: {x: 217, y: 323}
   m_SizeDelta: {x: 60.3925, y: 57.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783347187
@@ -1272,11 +1272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ee123fea19e6349bb73af7ceb832ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Texts: []
+  ApplicationManagementGameObject: {fileID: 1594117457}
   ElementCanvas: {fileID: 1558828839}
   CloseButton: {fileID: 783347187}
   ElementName: {fileID: 1400117252}
   ElementDescription: {fileID: 1499795332}
+  JsonFile: {fileID: 4900000, guid: b1694e6bd25c56b48b60b76cdf0641c4, type: 3}
 --- !u!1 &828098102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +1970,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2034,7 +2035,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2065,8 +2066,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2231, y: 174}
-  m_SizeDelta: {x: 404.5273, y: 88.5061}
+  m_AnchoredPosition: {x: 1.2234, y: 213.5358}
+  m_SizeDelta: {x: 404.53, y: 151.4344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1439969518
 GameObject:
@@ -2322,8 +2323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2234, y: -50.1251}
-  m_SizeDelta: {x: 404.53, y: 331.86}
+  m_AnchoredPosition: {x: 1.2239, y: -109.7342}
+  m_SizeDelta: {x: 404.53, y: 451.0782}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499795332
 MonoBehaviour:
@@ -2505,8 +2506,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 246.9159, y: 432.62842}
-  m_SizeDelta: {x: 461.0263, y: 577.1341}
+  m_AnchoredPosition: {x: 259.82, y: 360.6}
+  m_SizeDelta: {x: 519.65, y: 721.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1573479103
 GameObject:
@@ -2941,8 +2942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00062561, y: -0.0010071}
-  m_SizeDelta: {x: 461.03, y: 577.13}
+  m_AnchoredPosition: {x: -0.00018024, y: 0.0010529}
+  m_SizeDelta: {x: 519.65, y: 721.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831711063
 MonoBehaviour:
@@ -3044,7 +3045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 993c77aae6b37f34fabb3d7736905ac4, type: 3}
       propertyPath: m_Name
-      value: pipe
+      value: flow-meter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
