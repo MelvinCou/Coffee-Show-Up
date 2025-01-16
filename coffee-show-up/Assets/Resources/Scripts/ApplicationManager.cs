@@ -142,9 +142,9 @@ public class ApplicationManager : MonoBehaviour
                 _explodedViewSequence = DOTween.Sequence();
                 _explodedViewSequence
                     .Append(nozzle.transform.DOMove(new Vector3(-0.01f, 0.05f, 0), 5))
-                    .Join(piston.transform.DOMove(new Vector3(-0.01f, 0.08f, 0), 5))
+                    .Join(piston.transform.DOMove(new Vector3(-0.01f, 0, 0), 5))
                     .Join(pump.transform.DOMove(new Vector3(-0.01f, 0.05f, 0.02f), 5))
-                    .Join(pipes.transform.DOMove(new Vector3(-0.01f, 0.05f, 0), 5))
+                    .Join(pipes.transform.DOMove(new Vector3(-0.02f, 0.05f, 0), 5))
                     .SetAutoKill(false);
             }
             else if(CoffeeMachineState.Equals(CoffeeMachineStates.INNER_VIEW))

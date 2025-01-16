@@ -1,0 +1,29 @@
+﻿{
+  "Items":[
+    {
+      "Name": "pump",
+      "FullName": "La pompe",
+      "Description": "La pompe Nespresso fonctionne en pompant l'eau du réservoir et pousser l'eau dans un élément chauffant (thermobloc contenu dans le piston).\n Une fois l'eau arrivée à température, elle est renvoyée vers la capsule pour faire le café. \n La pompe fonctionne à une pression de 19 bars."
+    },
+    {
+      "Name": "piston",
+      "FullName": "Le piston et \n le thermobloc",
+      "Description": "Le piston est là où passe l'eau avant d'arriver vers la capsule.\n Le piston contient le thermobloc, qui est l'élément chauffant de la machine Nespresso.\n Il permet d'obtenir rapidement la température optimale (90°C) de l'eau pour un café de qualité."
+    },
+    {
+      "Name": "nozzle",
+      "FullName": "La buse \n",
+      "Description": "Il s'agit de la dernière partie où passe le café. Sa forme et son calibre permet de contrôler le flux, le débit et la direction du café qui coule."
+    },
+    {
+      "Name": "pipe-system",
+      "FullName": "Le système de \n tuyauterie",
+      "Description": "Le système de tuyauterie de la machine à café Nespresso est composé de silicone permettant une bonne résistance à la chaleur et à la pression exercée par la pompe."
+    },
+    {
+      "Name": "flow-meter",
+      "FullName": "Le débitmètre",
+      "Description": "Cette partie du système de tuyauterie de votre machine est associée à un débitmètre.\n Celui-ci permet de pomper uniquement la quantité d'eau nécessaire à la réalisation d'un café."
+    }
+  ]
+}
