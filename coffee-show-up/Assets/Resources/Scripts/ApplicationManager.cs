@@ -2,7 +2,9 @@ using Assets.Resources.Scripts;
 using DG.Tweening;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Vuforia;
 
 public class ApplicationManager : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class ApplicationManager : MonoBehaviour
     public Button ChangeViewButton;
 
     public Button ActiveExplodedViewButton;
+
+    public Button ResetButton;
 
     public AudioSource AudioSource;
 
@@ -52,6 +56,7 @@ public class ApplicationManager : MonoBehaviour
         AudioButton.onClick.AddListener(PlayAudio);
         ChangeViewButton.onClick.AddListener(ChangeViewState);
         ActiveExplodedViewButton.onClick.AddListener(ChangeInnerPartsState);
+        ResetButton.onClick.AddListener(ResetApp);
     }
 
     void Update()
@@ -154,5 +159,10 @@ public class ApplicationManager : MonoBehaviour
                 _explodedViewSequence.SmoothRewind();
             }
         }
+    }
+
+    void ResetApp()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
