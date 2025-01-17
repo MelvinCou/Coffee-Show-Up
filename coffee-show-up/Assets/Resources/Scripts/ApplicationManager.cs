@@ -26,6 +26,8 @@ public class ApplicationManager : MonoBehaviour
 
     public AudioSource AudioSource;
 
+    public AudioClip[] AudioClips;
+
     private Text _presentationText;
 
     private Sequence _innerPartsRevealSequence;
@@ -37,7 +39,7 @@ public class ApplicationManager : MonoBehaviour
         AppState = ApplicationStates.APP_STARTED;
         CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
         Mode = ModeStates.NO_ACTIVE_MODE;
-       
+
         InnerParts.SetActive(false);
         InteractiveButtons.SetActive(false);
         Text[] children = StartElementUI.GetComponentsInChildren<Text>();
@@ -59,13 +61,13 @@ public class ApplicationManager : MonoBehaviour
             StartElementUI.SetActive(false);
         }
 
-        if(!AppState.Equals(ApplicationStates.MODEL_SPAWNED))
+        if (!AppState.Equals(ApplicationStates.MODEL_SPAWNED))
         {
             InnerParts.SetActive(false);
             InteractiveButtons.SetActive(false);
             Mode = ModeStates.NO_ACTIVE_MODE;
             CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
-        } 
+        }
         else
         {
             InteractiveButtons.SetActive(true);
@@ -80,7 +82,7 @@ public class ApplicationManager : MonoBehaviour
 
     void ChangeViewState()
     {
-        if(CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
+        if (CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
         {
             CoffeeMachineState = CoffeeMachineModelStates.INNER_VIEW;
         }
@@ -108,7 +110,7 @@ public class ApplicationManager : MonoBehaviour
                     .Join(upperPart.transform.DOMoveY(0.1f, 5))
                     .SetAutoKill(false);
             }
-            else if(CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
+            else if (CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
             {
                 _innerPartsRevealSequence.SmoothRewind();
                 InnerParts.SetActive(false);
@@ -147,7 +149,7 @@ public class ApplicationManager : MonoBehaviour
                     .Join(pipes.transform.DOMove(new Vector3(-0.02f, 0.05f, 0), 5))
                     .SetAutoKill(false);
             }
-            else if(CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
+            else if (CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
             {
                 _explodedViewSequence.SmoothRewind();
             }
