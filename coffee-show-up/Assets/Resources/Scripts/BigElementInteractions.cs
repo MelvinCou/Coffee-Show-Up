@@ -71,6 +71,9 @@ public class BigElementInteractions : MonoBehaviour
                             _descriptionSequence
                                     .Append(ElementName.DOText(currentElement.FullName, 2))
                                     .Append(ElementDescription.DOText(currentElement.Description, 1));
+
+                            _appManagement.AudioSource.clip = _appManagement.AudioClips.First(clip => clip.name == currentElement.Name);
+                            _appManagement.AudioSource.Play();
                         }
                     }
                 }

@@ -2639,6 +2639,12 @@ MonoBehaviour:
   ChangeViewButton: {fileID: 465423860}
   ActiveExplodedViewButton: {fileID: 2142307935}
   AudioSource: {fileID: 1006279452}
+  AudioClips:
+  - {fileID: 8300000, guid: 97101d22329bf4760a58d5fe1d623118, type: 3}
+  - {fileID: 8300000, guid: dc22af8376f5027408aa8cdc48eb4dbc, type: 3}
+  - {fileID: 8300000, guid: d57e96c318d19a168a52daba8cd8291d, type: 3}
+  - {fileID: 8300000, guid: 8abc2b2aa6f8edb8c9f78994a67412c0, type: 3}
+  - {fileID: 8300000, guid: b4bf70d4138ecdab6aacd942d6096ce4, type: 3}
 --- !u!1 &1612984611
 GameObject:
   m_ObjectHideFlags: 0
