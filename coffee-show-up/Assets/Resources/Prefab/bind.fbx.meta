@@ -3,7 +3,22 @@ guid: 377cd2a316adc034bb0b9ad69df5eb2e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tripo_mat_2cb95ba6-e59a-4645-9c25-01689ee093eb
+    second: {fileID: 2100000, guid: d5ee92b9e27274b488097265b0747dbb, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Color_734f5eaa-8519-4e4a-a8a1-2f42249aa150
+    second: {fileID: 2800000, guid: 0f472c8b906362a46b31a1a24416ad57, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: NormalGL_734f5eaa-8519-4e4a-a8a1-2f42249aa150
+    second: {fileID: 2800000, guid: ff9e7701bf480e5438b3b4c68a2bbfab, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

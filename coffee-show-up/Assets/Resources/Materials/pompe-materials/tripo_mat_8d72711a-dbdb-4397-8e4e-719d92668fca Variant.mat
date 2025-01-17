@@ -7,15 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedMaterial
+  m_Name: tripo_mat_8d72711a-dbdb-4397-8e4e-719d92668fca Variant
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 91cdeff17f881fd48b5f8100a4ebe581, type: 2}
-  m_ModifiedSerializedProperties: 24
+  m_Parent: {fileID: 2100000, guid: ba3fa9e26531ad0449c899fdd59dfc26, type: 2}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: Opaque
@@ -26,18 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _Cull: 0
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
-    - _Surface: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _BaseColor: {r: 0.4716981, g: 0.19846918, b: 0.19846918, a: 1}
-    - _Color: {r: 0.4716981, g: 0.19846913, b: 0.19846913, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7792827092492864528
+--- !u!114 &1978670852822942689
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
