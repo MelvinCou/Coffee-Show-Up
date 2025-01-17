@@ -14,7 +14,7 @@ public class ApplicationManager : MonoBehaviour
 
     public ApplicationStates AppState { get; set; }
 
-    public CoffeeMachineStates CoffeeMachineState { get; set; }
+    public CoffeeMachineModelStates CoffeeMachineState { get; set; }
 
     public ModeStates Mode { get; set; }
 
@@ -35,7 +35,7 @@ public class ApplicationManager : MonoBehaviour
     void Start()
     {
         AppState = ApplicationStates.APP_STARTED;
-        CoffeeMachineState = CoffeeMachineStates.NO_SHOW;
+        CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
         Mode = ModeStates.NO_ACTIVE_MODE;
        
         InnerParts.SetActive(false);
@@ -64,7 +64,7 @@ public class ApplicationManager : MonoBehaviour
             InnerParts.SetActive(false);
             InteractiveButtons.SetActive(false);
             Mode = ModeStates.NO_ACTIVE_MODE;
-            CoffeeMachineState = CoffeeMachineStates.NO_SHOW;
+            CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
         } 
         else
         {
@@ -80,13 +80,13 @@ public class ApplicationManager : MonoBehaviour
 
     void ChangeViewState()
     {
-        if(CoffeeMachineState.Equals(CoffeeMachineStates.EXTERNAL_VIEW))
+        if(CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
         {
-            CoffeeMachineState = CoffeeMachineStates.INNER_VIEW;
+            CoffeeMachineState = CoffeeMachineModelStates.INNER_VIEW;
         }
         else
         {
-            CoffeeMachineState = CoffeeMachineStates.EXTERNAL_VIEW;
+            CoffeeMachineState = CoffeeMachineModelStates.EXTERNAL_VIEW;
         }
 
         ManageExternalAnimation();
@@ -99,7 +99,7 @@ public class ApplicationManager : MonoBehaviour
 
         if (lateralPlane != null && upperPart != null)
         {
-            if (CoffeeMachineState.Equals(CoffeeMachineStates.INNER_VIEW))
+            if (CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
             {
                 InnerParts.SetActive(true);
                 _innerPartsRevealSequence = DOTween.Sequence();
@@ -108,7 +108,7 @@ public class ApplicationManager : MonoBehaviour
                     .Join(upperPart.transform.DOMoveY(0.1f, 5))
                     .SetAutoKill(false);
             }
-            else if(CoffeeMachineState.Equals(CoffeeMachineStates.EXTERNAL_VIEW))
+            else if(CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
             {
                 _innerPartsRevealSequence.SmoothRewind();
                 InnerParts.SetActive(false);
@@ -118,13 +118,13 @@ public class ApplicationManager : MonoBehaviour
 
     void ChangeInnerPartsState()
     {
-        if (CoffeeMachineState.Equals(CoffeeMachineStates.INNER_VIEW))
+        if (CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
         {
-            CoffeeMachineState = CoffeeMachineStates.EXPLODED_VIEW;
+            CoffeeMachineState = CoffeeMachineModelStates.EXPLODED_VIEW;
         }
-        else if (CoffeeMachineState.Equals(CoffeeMachineStates.EXPLODED_VIEW))
+        else if (CoffeeMachineState.Equals(CoffeeMachineModelStates.EXPLODED_VIEW))
         {
-            CoffeeMachineState = CoffeeMachineStates.INNER_VIEW;
+            CoffeeMachineState = CoffeeMachineModelStates.INNER_VIEW;
         }
         ManageInnerPartsAnimation();
     }
@@ -137,7 +137,7 @@ public class ApplicationManager : MonoBehaviour
         GameObject pipes = GameObject.FindGameObjectWithTag("Pipes");
         if (nozzle != null && piston != null && pump != null && pipes != null)
         {
-            if (CoffeeMachineState.Equals(CoffeeMachineStates.EXPLODED_VIEW))
+            if (CoffeeMachineState.Equals(CoffeeMachineModelStates.EXPLODED_VIEW))
             {
                 _explodedViewSequence = DOTween.Sequence();
                 _explodedViewSequence
@@ -147,7 +147,7 @@ public class ApplicationManager : MonoBehaviour
                     .Join(pipes.transform.DOMove(new Vector3(-0.02f, 0.05f, 0), 5))
                     .SetAutoKill(false);
             }
-            else if(CoffeeMachineState.Equals(CoffeeMachineStates.INNER_VIEW))
+            else if(CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
             {
                 _explodedViewSequence.SmoothRewind();
             }
