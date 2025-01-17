@@ -28,6 +28,8 @@ public class ApplicationManager : MonoBehaviour
 
     public Button ResetButton;
 
+    public Dropdown ModesDropdown;
+
     public AudioSource AudioSource;
 
     public AudioClip[] AudioClips;
@@ -46,6 +48,9 @@ public class ApplicationManager : MonoBehaviour
 
         InnerParts.SetActive(false);
         InteractiveButtons.SetActive(false);
+        ModesDropdown.gameObject.SetActive(false);
+
+
         Text[] children = StartElementUI.GetComponentsInChildren<Text>();
         _presentationText = children.First(text => text.name == "PresentationText");
         if (_presentationText)
@@ -57,6 +62,10 @@ public class ApplicationManager : MonoBehaviour
         ChangeViewButton.onClick.AddListener(ChangeViewState);
         ActiveExplodedViewButton.onClick.AddListener(ChangeInnerPartsState);
         ResetButton.onClick.AddListener(ResetApp);
+        ModesDropdown.onValueChanged.AddListener(delegate
+        {
+            ChangeMode(ModesDropdown);
+        });
     }
 
     void Update()
@@ -77,6 +86,24 @@ public class ApplicationManager : MonoBehaviour
         {
             InteractiveButtons.SetActive(true);
             InnerParts.SetActive(true);
+        }
+
+        if (CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
+        {
+            ModesDropdown.gameObject.SetActive(true);
+        }
+        else
+        {
+            ModesDropdown.gameObject.SetActive(false);
+        }
+
+        if(Mode.Equals(ModeStates.STANDARD_MODE) || Mode.Equals(ModeStates.MAINTENANCE_MODE))
+        {
+            ActiveExplodedViewButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            ActiveExplodedViewButton.gameObject.SetActive(true);
         }
     }
 
@@ -158,6 +185,17 @@ public class ApplicationManager : MonoBehaviour
             {
                 _explodedViewSequence.SmoothRewind();
             }
+        }
+    }
+
+    void ChangeMode(Dropdown modesDropdown)
+    {
+        switch (modesDropdown.value)
+        {
+            case 0: Mode = ModeStates.NO_ACTIVE_MODE; break;
+            case 1: Mode = ModeStates.STANDARD_MODE; break;
+            case 2: Mode = ModeStates.MAINTENANCE_MODE; break;
+            default: break;
         }
     }
 
