@@ -24,6 +24,8 @@ public class ApplicationManager : MonoBehaviour
 
     public Button ActiveExplodedViewButton;
 
+    public Button ResetButton;
+
     public AudioSource AudioSource;
 
     public AudioClip[] AudioClips;
@@ -36,22 +38,12 @@ public class ApplicationManager : MonoBehaviour
 
     void Start()
     {
-        AppState = ApplicationStates.APP_STARTED;
-        CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
-        Mode = ModeStates.NO_ACTIVE_MODE;
-
-        InnerParts.SetActive(false);
-        InteractiveButtons.SetActive(false);
-        Text[] children = StartElementUI.GetComponentsInChildren<Text>();
-        _presentationText = children.First(text => text.name == "PresentationText");
-        if (_presentationText)
-        {
-            _presentationText.DOText("Scannez votre machine à café...", 5);
-        }
+        Reset();
 
         AudioButton.onClick.AddListener(PlayAudio);
         ChangeViewButton.onClick.AddListener(ChangeViewState);
         ActiveExplodedViewButton.onClick.AddListener(ChangeInnerPartsState);
+        ResetButton.onClick.AddListener(Reset);
     }
 
     void Update()
@@ -78,6 +70,21 @@ public class ApplicationManager : MonoBehaviour
     void PlayAudio()
     {
         AudioSource.Play();
+    }
+
+    void Reset() {
+        AppState = ApplicationStates.APP_STARTED;
+        CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
+        Mode = ModeStates.NO_ACTIVE_MODE;
+
+        InnerParts.SetActive(false);
+        InteractiveButtons.SetActive(false);
+        Text[] children = StartElementUI.GetComponentsInChildren<Text>();
+        _presentationText = children.First(text => text.name == "PresentationText");
+        if (_presentationText)
+        {
+            _presentationText.DOText("Scannez votre machine à café...", 5);
+        }
     }
 
     void ChangeViewState()
