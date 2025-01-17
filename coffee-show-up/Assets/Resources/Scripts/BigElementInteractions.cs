@@ -50,7 +50,7 @@ public class BigElementInteractions : MonoBehaviour
 
     void ManageTouchScreen()
     {
-        if (UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count > 0 && _appManagement.CoffeeMachineState.Equals(CoffeeMachineStates.EXPLODED_VIEW))
+        if (UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count > 0 && _appManagement.CoffeeMachineState.Equals(CoffeeMachineModelStates.EXPLODED_VIEW))
         {
             foreach (var touch in UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches)
             {
