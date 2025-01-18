@@ -1,8 +1,10 @@
 using Assets.Resources.Scripts;
 using DG.Tweening;
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Vuforia;
 
 public class ApplicationManager : MonoBehaviour
 {
@@ -72,19 +74,27 @@ public class ApplicationManager : MonoBehaviour
         AudioSource.Play();
     }
 
-    void Reset() {
+    void Reset()
+    {
         AppState = ApplicationStates.APP_STARTED;
         CoffeeMachineState = CoffeeMachineModelStates.NO_VIEW;
-        Mode = ModeStates.NO_ACTIVE_MODE;
 
-        InnerParts.SetActive(false);
-        InteractiveButtons.SetActive(false);
+        ManageInnerPartsAnimation();
+        Update();
+
+        StartElementUI.SetActive(true);
+
         Text[] children = StartElementUI.GetComponentsInChildren<Text>();
         _presentationText = children.First(text => text.name == "PresentationText");
         if (_presentationText)
         {
+            _presentationText.DOText("", 0);
             _presentationText.DOText("Scannez votre machine à café...", 5);
         }
+
+        ManageExternalAnimation();
+        _ = VuforiaBehaviour.Instance.ClearModelTargetDetectionCache();
+        _ = VuforiaBehaviour.Instance.DORestart(false);
     }
 
     void ChangeViewState()
@@ -108,19 +118,23 @@ public class ApplicationManager : MonoBehaviour
 
         if (lateralPlane != null && upperPart != null)
         {
-            if (CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
+            switch (CoffeeMachineState)
             {
-                InnerParts.SetActive(true);
-                _innerPartsRevealSequence = DOTween.Sequence();
-                _innerPartsRevealSequence
-                    .Append(lateralPlane.transform.DOMoveY(0.1f, 5))
-                    .Join(upperPart.transform.DOMoveY(0.1f, 5))
-                    .SetAutoKill(false);
-            }
-            else if (CoffeeMachineState.Equals(CoffeeMachineModelStates.EXTERNAL_VIEW))
-            {
-                _innerPartsRevealSequence.SmoothRewind();
-                InnerParts.SetActive(false);
+                case CoffeeMachineModelStates.INNER_VIEW:
+                    InnerParts.SetActive(true);
+                    _innerPartsRevealSequence = DOTween.Sequence();
+                    _innerPartsRevealSequence
+                        .Append(lateralPlane.transform.DOMoveY(0.1f, 5))
+                        .Join(upperPart.transform.DOMoveY(0.1f, 5))
+                        .SetAutoKill(false);
+                    break;
+                case CoffeeMachineModelStates.EXTERNAL_VIEW:
+                case CoffeeMachineModelStates.NO_VIEW:
+                    _innerPartsRevealSequence.SmoothRewind();
+                    InnerParts.SetActive(false);
+                    break;
+                default:
+                    throw new ArgumentException($"Unknown state {CoffeeMachineState}", nameof(CoffeeMachineState));
             }
         }
     }
@@ -146,19 +160,25 @@ public class ApplicationManager : MonoBehaviour
         GameObject pipes = GameObject.FindGameObjectWithTag("Pipes");
         if (nozzle != null && piston != null && pump != null && pipes != null)
         {
-            if (CoffeeMachineState.Equals(CoffeeMachineModelStates.EXPLODED_VIEW))
+            switch (CoffeeMachineState)
             {
-                _explodedViewSequence = DOTween.Sequence();
-                _explodedViewSequence
-                    .Append(nozzle.transform.DOMove(new Vector3(-0.01f, 0.05f, 0), 5))
-                    .Join(piston.transform.DOMove(new Vector3(-0.01f, 0, 0), 5))
-                    .Join(pump.transform.DOMove(new Vector3(-0.01f, 0.05f, 0.02f), 5))
-                    .Join(pipes.transform.DOMove(new Vector3(-0.02f, 0.05f, 0), 5))
-                    .SetAutoKill(false);
-            }
-            else if (CoffeeMachineState.Equals(CoffeeMachineModelStates.INNER_VIEW))
-            {
-                _explodedViewSequence.SmoothRewind();
+                case CoffeeMachineModelStates.EXPLODED_VIEW:
+                    _explodedViewSequence = DOTween.Sequence();
+                    _explodedViewSequence
+                        .Append(nozzle.transform.DOMove(new Vector3(-0.01f, 0.05f, 0), 5))
+                        .Join(piston.transform.DOMove(new Vector3(-0.01f, 0, 0), 5))
+                        .Join(pump.transform.DOMove(new Vector3(-0.01f, 0.05f, 0.02f), 5))
+                        .Join(pipes.transform.DOMove(new Vector3(-0.02f, 0.05f, 0), 5))
+                        .SetAutoKill(false);
+                    break;
+                case CoffeeMachineModelStates.INNER_VIEW:
+                    _explodedViewSequence?.SmoothRewind();
+                    break;
+                case CoffeeMachineModelStates.NO_VIEW:
+                    _explodedViewSequence?.Rewind();
+                    break;
+                default:
+                    throw new ArgumentException($"Unknown state {CoffeeMachineState}", nameof(CoffeeMachineState));
             }
         }
     }
