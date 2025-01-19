@@ -3,7 +3,7 @@
     {
       "Name": "pump",
       "FullName": "La pompe",
-      "Description": "La pompe Nespresso fonctionne en pompant l'eau du réservoir et pousser l'eau dans un élément chauffant (thermobloc contenu dans le piston).\n Une fois l'eau arrivée à température, elle est renvoyée vers la capsule pour faire le café. \n La pompe fonctionne à une pression de 19 bars."
+      "Description": "La pompe Nespresso fonctionne en pompant l'eau du réservoir et pousse l'eau dans un élément chauffant (thermobloc contenu dans le piston).\n Une fois l'eau arrivée à température, elle est renvoyée vers la capsule pour faire le café. \n La pompe fonctionne à une pression de 19 bars."
     },
     {
       "Name": "piston",
