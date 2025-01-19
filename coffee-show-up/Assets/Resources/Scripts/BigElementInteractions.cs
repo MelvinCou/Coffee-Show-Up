@@ -13,6 +13,8 @@ public class BigElementInteractions : MonoBehaviour
 
     public Button CloseButton;
 
+    public Button PlayAudioButton;
+
     public Text ElementName;
 
     public Text ElementDescription;
@@ -32,6 +34,7 @@ public class BigElementInteractions : MonoBehaviour
     {
         ElementCanvas.SetActive(false);
         CloseButton.onClick.AddListener(CloseUI);
+        PlayAudioButton.onClick.AddListener(PlayAudio);
         EnhancedTouchSupport.Enable();
         _appManagement = ApplicationManagementGameObject.GetComponent<ApplicationManager>();
 
@@ -73,12 +76,16 @@ public class BigElementInteractions : MonoBehaviour
                                     .Append(ElementDescription.DOText(currentElement.Description, 1));
 
                             _appManagement.AudioSource.clip = _appManagement.AudioClips.First(clip => clip.name == currentElement.Name);
-                            _appManagement.AudioSource.Play();
                         }
                     }
                 }
             }
         }
+    }
+
+    void PlayAudio()
+    {
+        _appManagement.AudioSource.Play();
     }
 
     void CloseUI()
