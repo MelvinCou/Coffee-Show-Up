@@ -29,4 +29,11 @@ namespace Assets.Resources.Scripts
         STANDARD_MODE,
         MAINTENANCE_MODE
     }
+
+    public enum AnimationStates
+    {
+        NOT_STARTED,
+        PLAYING,
+        PAUSED,
+    }
 }
