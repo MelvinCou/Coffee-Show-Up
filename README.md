@@ -13,3 +13,6 @@ NB : this project is configured to work on Android. If you need to use it on ano
 
 > [!Note]
 > Automatic APK builds are available in the [Releases](https://github.com/MelvinCou/Coffee-Show-Up/releases).
+
+## Feedback
+To improve our app, we created a google form for users to give us feedback. If you want to help us you can answer it [here](https://forms.gle/BugkgL3KHx8G32xH9)
